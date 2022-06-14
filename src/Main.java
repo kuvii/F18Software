@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.Scanner;
 
 public class Main {
@@ -72,6 +73,33 @@ public class Main {
                     }
                     break;
                 case "Q":
+                    String filename = "data/plane.dat";
+
+                    FileOutputStream outputFile = null;
+                    BufferedOutputStream bufferedOutput= null;
+                    ObjectOutputStream objectOutput = null;
+
+                    try {
+                        outputFile = new FileOutputStream(filename);
+                        bufferedOutput = new BufferedOutputStream(outputFile);
+                        objectOutput = new ObjectOutputStream(bufferedOutput);
+
+                        objectOutput.writeObject(f18);
+
+                    }catch (FileNotFoundException e){
+                        System.out.println("No se encuentra el archivo");
+                    }catch (IOException e){
+                        System.out.println(e);
+                    }finally {
+                        try {
+                            if (objectOutput != null) objectOutput.close();
+                            if (bufferedOutput != null) bufferedOutput.close();
+                            if (outputFile != null) outputFile.close();
+                        } catch (IOException e) {
+                            System.out.println("Error al cerrar streams");
+                        }
+                    }
+                    bucle = false;
                     break;
                 default:
                     System.out.printf(option + "No es una opcion del avión");
