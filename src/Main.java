@@ -36,6 +36,12 @@ public class Main {
                     System.out.println(f18);
                     break;
                 case "2":
+                    try {
+                        f18.toggleFlaps();
+                        System.out.println(f18);
+                    } catch (NullPointerException n) {
+                        System.out.println("No se ha encontrado el avión");
+                    }
                     break;
                 case "3":
                     break;
