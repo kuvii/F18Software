@@ -52,7 +52,12 @@ public class Main {
                     }
                     break;
                 case "4":
-
+                    try {
+                        f18.ejectionSystem();
+                        System.out.println(f18);
+                    } catch (NullPointerException n) {
+                        System.out.println("No se ha encontrado el avión");
+                    }
                     break;
                 case "5":
                     break;
