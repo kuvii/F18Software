@@ -60,6 +60,16 @@ public class Main {
                     }
                     break;
                 case "5":
+                    try {
+                        if (f18.isEjectionSystem()){
+                            f18.setSeatOccupation(false);
+                            System.out.println(f18);
+                        }else {
+                            System.out.println("El sistema de eyección esta apagado");
+                        }
+                    } catch (NullPointerException n) {
+                        System.out.println("No se ha encontrado el avión");
+                    }
                     break;
                 case "Q":
                     break;
