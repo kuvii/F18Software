@@ -10,6 +10,36 @@ public class Main {
 
         boolean bucle = true;
 
+        String fileName = "data/plane.dat";
+
+        FileInputStream inputFile;
+        BufferedInputStream bufferedInput;
+        ObjectInputStream objectInput;
+
+        try {
+            inputFile = new FileInputStream(fileName);
+            bufferedInput = new BufferedInputStream(inputFile);
+            objectInput = new ObjectInputStream(bufferedInput);
+
+            try {
+                Plane p = (Plane) objectInput.readObject();
+                f18 = p;
+                while (true) {
+                    System.out.println(p);
+                    p = (Plane) objectInput.readObject();
+                }
+            } catch (EOFException ex) {
+                System.out.println("Hemos llegado al final del fichero.");
+            } catch (ClassNotFoundException e) {
+                System.out.println("Se ha producido un error al leer un objeto");
+            }
+
+        } catch (FileNotFoundException e) {
+            System.out.println("No se encuentra el archivo");
+        } catch (IOException e) {
+            System.out.println("Se ha producido un error de entrada salida");
+        }
+
         while (bucle) {
             System.out.println("1 - Inicializar F18\n" +
                     "2 - Alternar estado de los flaps \n" +
