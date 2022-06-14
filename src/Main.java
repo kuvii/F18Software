@@ -61,8 +61,6 @@ public class Main {
                     scanner.next();
                     f18 = new Plane(fuelLevel, nickname, squadPlate);
                     f18.toggleFlaps();
-                    f18.toggleLandingGear();
-                    f18.ejectionSystem();
                     f18.setSeatOccupation(true);
                     System.out.println(f18);
                     break;
