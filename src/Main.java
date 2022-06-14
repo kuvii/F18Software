@@ -44,6 +44,12 @@ public class Main {
                     }
                     break;
                 case "3":
+                    try {
+                        f18.toggleLandingGear();
+                        System.out.println(f18);
+                    } catch (NullPointerException n) {
+                        System.out.println("No se ha encontrado el avión");
+                    }
                     break;
                 case "4":
 
