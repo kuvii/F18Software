@@ -1,4 +1,6 @@
-public class Plane {
+import java.io.Serializable;
+
+public class Plane implements Serializable {
     private float fuelLevel;
     private String pilotCallSign;
     private String squadNumber;
